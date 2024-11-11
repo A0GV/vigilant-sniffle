@@ -1,4 +1,5 @@
 use iot;
+
 create table tf(
 id int not null auto_increment,
 tds float default null,
@@ -9,7 +10,6 @@ fotores float default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-
 
 create table t1(
 id int not null auto_increment,
