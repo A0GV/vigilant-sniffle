@@ -24,8 +24,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const router = require('./route')
 
-
-
 /**
  * Paso 1: Crear el servidor con Express.
  */
