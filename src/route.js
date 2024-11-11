@@ -45,7 +45,7 @@ const router = express.Router();
     /** URLs de las tablas 1,2,3, F **/
     // Router tabla 1
     router.post(constants.contextURL + constants.api + constants.postValoresT1, temperaturaController.insertValoresT1);
-    router.get(constants.contextURL + constants.api + constants.getValoresT1, temperaturaController.getValoresT1);
+    router.get(constants.contextURL + constants.api + constants.getValTable1, temperaturaController.getValoresT1);
     // Router tabla 2
     router.get(constants.contextURL + constants.api + constants.getValoresT2, temperaturaController.getValoresT2);
     router.post(constants.contextURL + constants.api + constants.postValoresT2, temperaturaController.insertValoresT2);

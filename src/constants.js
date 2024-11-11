@@ -39,7 +39,7 @@ const getValoresSensores='/igetValores';
 
 
 // Links tabla 1
-const getValoresT1='/getValoresTabla1';
+const getValTable1='/getValoresTabla1';
 const postValoresT1='/insertarValoresTabla1';
 
 // Links tabla 2
@@ -96,5 +96,6 @@ module.exports= {
    dbHost,dbPort,dbUser,dbPass,dbName,serverPort, contextURL,api,getTemperatureSensor,
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
-    selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF
+    selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
+    getValoresByDateTF
 }
