@@ -1,3 +1,7 @@
+GET http://localhost:3000/iot/api/getValoresTablaF?id=99
+Accept: application/json
+
+###
 POST http://localhost:3000/iot/api/insertDistancias
 Content-Type: application/json
 
@@ -15,7 +19,7 @@ Content-Type: application/json
 
 
 ###
-GET http://localhost:3000/iot/api/getDistancias?id=99
+GET http://10.22.206.198:3000/iot/api/getDistancias?id=99
 Accept: application/json
 
 ###

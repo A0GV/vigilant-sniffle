@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 ca.pem
+
+CMakeLists.txt
+Potatoe.c

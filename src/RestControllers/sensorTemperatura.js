@@ -301,6 +301,274 @@ async function getValores(req,res){
     }
 }
 
+async function getValoresT1(req,res){
+    try{
+        var sql=constants.selecValorT1;
+        var conn=mysql.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+async function getValoresT2(req,res){
+    try{
+        var sql=constants.selecValorT2;
+        var conn=mysql.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+async function getValoresT3(req,res){
+    try{
+        var sql=constants.selecValorT3;
+        var conn=mysql.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+async function getValoresTF(req,res){
+    try{
+        var sql=constants.selecValorTF;
+        var conn=mysql.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+async function getValoresByDateTF(req,res){
+    try{
+        var sql = constants.selectValoresByDateTF;
+
+        var date_one = req.body.date_one;
+        var date_two = req.body.date_two;
+
+        var conn = mysql.getConnection();
+        conn.connect((error)=>{
+            if (error) throw error;
+            var params = [date_one,date_two];
+            conn.execute(sql, params, (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error)
+        res.status(500)
+        res.send(error)
+    }
+
+}
 
 
-module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores};
+async function insertValoresT1(req, res) {
+    try {
+        var conn = mysql.getConnection();
+        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
+        var sql = constants.insertValorT1;
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            // Pasamos los valores de las columnas en el orden correcto
+            conn.query(sql, [req.body.boton], (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
+async function insertValoresT2(req, res) {
+    try {
+        var conn = mysql.getConnection();
+        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
+        var sql = constants.insertValorT2;
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            // Pasamos los valores de las columnas en el orden correcto
+            conn.query(sql, [req.body.dist,
+            req.body.fotores,
+            req.body.fotoval], (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
+async function insertValoresT3(req, res) {
+    try {
+        var conn = mysql.getConnection();
+        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
+        var sql = constants.insertValorT3;
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            // Pasamos los valores de las columnas en el orden correcto
+            conn.query(sql, [req.body.ph, req.body.tempe], (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
+async function insertValoresTF(req, res) {
+    try {
+        var conn = mysql.getConnection();
+        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
+        var sql = constants.insertValorTF;
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            // Pasamos los valores de las columnas en el orden correcto
+            conn.query(sql, [req.body.ph,
+                req.body.tempe,
+                req.body.dist,
+                req.body.boton,
+                req.body.fotores,
+                req.body.fotoval], (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
+
+module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
+insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF};
