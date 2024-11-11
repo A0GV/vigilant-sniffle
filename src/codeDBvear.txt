@@ -1,7 +1,8 @@
 use iot;
+
 create table tf(
 id int not null auto_increment,
-ph float default null,
+tds float default null,
 tempe float default null,
 dist float default null,
 boton int default 0,
@@ -9,8 +10,6 @@ fotores float default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-)
-
 
 create table t1(
 id int not null auto_increment,
@@ -18,8 +17,6 @@ boton int default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-)
-
 
 create table t2(
 id int not null auto_increment,
@@ -29,21 +26,18 @@ fotoval int default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-)
-
 
 create table t3(
 id int not null auto_increment,
-ph float default null,
+tds float default null,
 tempe float default null,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-)
 
 ALTER table tf
 Add column fotoval int default null
 
 
-INSERT into tf  (ph,tempe, dist, boton, fotores, fotoval) values (7, 10, 200, 1, 1, 250);
+INSERT into tf (tds,tempe, dist, boton, fotores, fotoval) values (7, 10, 200, 1, 1, 250);
 
