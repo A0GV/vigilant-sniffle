@@ -71,7 +71,7 @@ const selectDistancia='SELECT * FROM distancias';
 const selectDistanciaByDate='SELECT * FROM distancias WHERE date between ? and ?';
 const insertDistancia='INSERT INTO distancias (distancia) values (?)';
 
-const insertValores='INSERT INTO sensores(ph, tempe, dist, boton, fotores) values (?,?,?,?,?)';
+const insertValores='INSERT INTO sensores(tds, tempe, dist, boton, fotores) values (?,?,?,?,?)';
 const selectValores='SELECT * FROM sensores';
 
 /*
@@ -83,11 +83,18 @@ const insertValorT1='INSERT INTO t1 (boton) values (?)';
 const selecValorT2='SELECT * FROM t2';
 const insertValorT2='INSERT INTO t2(dist, fotores, fotoval) values (?,?,?)';
 const selecValorT3='SELECT * FROM t3';
-const insertValorT3='INSERT INTO t3 (ph, tempe) values (?,?)';
+const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
 const selecValorTF='SELECT * FROM tf';
-const insertValorTF='INSERT INTO tf (ph,tempe, dist, boton, fotores, fotoval) values (?,?,?,?,?,)';
+const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
 const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
 
+
+// Sql para la prube del bucle
+
+const SQLt1='SELECT * FROM t1 WHERE id > ? ORDER BY id ASC LIMIT 1';
+const SQLt2='SELECT * FROM t2 WHERE id > ? ORDER BY id ASC LIMIT 1';
+const SQLt3='SELECT * FROM t3 WHERE id > ? ORDER BY id ASC LIMIT 1';
+const combinaciontrsTablas='INSERT INTO tf ( tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)'
 //Implemented Queries
 
 
@@ -97,5 +104,5 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas
 }

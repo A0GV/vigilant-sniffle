@@ -1,5 +1,28 @@
+POST http://localhost:3000/iot/api/insertarValoresTabla1
+Content-Type: application/json
+
+{"boton": 1}
+
+###
+POST http://localhost:3000/iot/api/insertarValoresTabla2
+Content-Type: application/json
+
+{ "dist":200,
+  "fotores":100 ,
+  "fotoval":185 }
+
+###
+POST http://localhost:3000/iot/api/insertarValoresTabla3
+Content-Type: application/json
+
+{"tds": 40,
+"tempe": 40}
+
+###
 GET http://10.22.201.178:3000/iot/api/getValoresTablaF?id=99
 Accept: application/json
+
+#http://10.22.201.178:3000/iot/api/
 
 ###
 POST http://localhost:3000/iot/api/insertDistancias
@@ -36,11 +59,11 @@ Content-Type: application/json
 ###
 
 ###
-POST http://localhost:3000/iot/api/insertTemperature
+POST http://10.22.201.178:3000/iot/api/insertarValoresTabla1
 Content-Type: application/json
 
 {
-  "valor": 40
+  "boton": 1
 }
 
 
