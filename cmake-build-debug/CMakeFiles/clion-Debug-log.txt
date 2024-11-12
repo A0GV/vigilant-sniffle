@@ -5,6 +5,6 @@
 -- Check for working C compiler: C:/Program Files/JetBrains/CLion 2024.1.1/bin/mingw/bin/gcc.exe - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Configuring done (4.9s)
+-- Configuring done (14.0s)
 -- Generating done (0.0s)
 -- Build files have been written to: C:/Users/adolf/Desktop/Api_Example_IOT/cmake-build-debug

@@ -571,10 +571,10 @@ async function insertValoresTF(req, res) {
 }
 let lastProcessedID = 0;
 
-async function checkAndInsert(req, res) {
+async function checkAndInsert() {
     let conn;
     try {
-        const { tds, tempe, dist, boton, fotores, fotoval } = req.body;
+        /*const { tds, tempe, dist, boton, fotores, fotoval } = req.body;
 
         if ([tds, tempe, dist, boton, fotores, fotoval].some(val => val === undefined || val === null)) {
             console.warn('Valores indefinidos o nulos encontrados');
@@ -582,9 +582,9 @@ async function checkAndInsert(req, res) {
             res.status(400).json({ error: 'Valores indefinidos o nulos en la solicitud' });
             return;
         }
-
+*/
         conn = db.getConnection();
-
+/*
         const sql = constants.insertValorTF;
         const executeResult = await conn.promise().query(sql, [tds, tempe, dist, boton, fotores, fotoval]);
 
@@ -596,7 +596,7 @@ async function checkAndInsert(req, res) {
         } else {
             throw new Error('La ejecución de la consulta no devolvió un resultado válido');
         }
-
+*/
         // Verifica que cada consulta retorne un resultado válido antes de desestructurar
         const [rowsT1] = await conn.promise().query(constants.SQLt1, [lastProcessedID]) || [];
         const [rowsT2] = await conn.promise().query(constants.SQLt2, [lastProcessedID]) || [];
@@ -610,18 +610,16 @@ async function checkAndInsert(req, res) {
 
             if (idT1 === idT2 && idT2 === idT3) {
                 const combinacionDeValores = {
-                    id: idT1,
                     tds: rowsT3[0].tds,       // Viene de t3
                     tempe: rowsT3[0].tempe,   // Viene de t3
                     dist: rowsT2[0].dist,     // Viene de t2
                     boton: rowsT1[0].boton,   // Viene de t1
                     fotores: rowsT2[0].fotores, // Viene de t2
-                    fotoval: rowsT1[0].fotoval  // Tomamos el valor de t1
+                    fotoval: rowsT2[0].fotoval  // Tomamos el valor de t1
                 };
 
                 const combinacionSQL = constants.combinaciontrsTablas;
                 await conn.promise().query(combinacionSQL, [
-                    combinacionDeValores.id,
                     combinacionDeValores.tds,
                     combinacionDeValores.tempe,
                     combinacionDeValores.dist,
@@ -633,39 +631,18 @@ async function checkAndInsert(req, res) {
                 lastProcessedID = idT1;
                 console.log('Nuevos valores combinados e insertados en tf', combinacionDeValores);
             }
-        }
+        }else
+            console.log('No hay datos nuevos para insertar');
 
-        res.json({ message: 'Valores insertados y verificación completada' });
     } catch (error) {
         console.error('Error al procesar e insertar los valores', error);
-        if (res && typeof res.status === 'function') {
-            res.status(500).json({ error: 'Error interno del servidor' });
-        }
     } finally {
         if (conn) await conn.end();
     }
 }
 
-// Datos de ejemplo para pruebas
-const sampleData = {
-    tds: 100,
-    tempe: 25.5, // float
-    dist: 50.3,  // float
-    boton: 1,    // int
-    fotores: 200.5, // float
-    fotoval: 123    // int
-};
-
-// Simulación del objeto res
-const res = {
-    json: console.log,
-    status: (code) => ({
-        json: (msg) => console.log(`Status ${code}:`, msg) // Usar comillas invertidas correctamente
-})
-};
-
 // Llamada periódica a la función con datos de ejemplo
-setInterval(() => checkAndInsert({ body: sampleData }, res), 5000);
+setInterval(checkAndInsert,5000);
 
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
 insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, checkAndInsert};
