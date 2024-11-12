@@ -85,7 +85,7 @@ const insertValorT2='INSERT INTO t2(dist, fotores, fotoval) values (?,?,?)';
 const selecValorT3='SELECT * FROM t3';
 const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
 const selecValorTF='SELECT * FROM tf';
-const insertValorTF='INSERT INTO tf (tds,tempe, dist, boton, fotores, fotoval) values (?,?,?,?,?,?)';
+const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
 const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
 
 
@@ -94,7 +94,7 @@ const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
 const SQLt1='SELECT * FROM t1 WHERE id > ? ORDER BY id ASC LIMIT 1';
 const SQLt2='SELECT * FROM t2 WHERE id > ? ORDER BY id ASC LIMIT 1';
 const SQLt3='SELECT * FROM t3 WHERE id > ? ORDER BY id ASC LIMIT 1';
-const combinaciontrsTablas='INSERT INTO tf (id, tds, tempe, dist, boton, fotores, fecha) VALUES (?, ?, ?, ?, ?, ?, ?)'
+const combinaciontrsTablas='INSERT INTO tf ( tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)'
 //Implemented Queries
 
 
