@@ -574,29 +574,10 @@ let lastProcessedID = 0;
 async function checkAndInsert() {
     let conn;
     try {
-        /*const { tds, tempe, dist, boton, fotores, fotoval } = req.body;
 
-        if ([tds, tempe, dist, boton, fotores, fotoval].some(val => val === undefined || val === null)) {
-            console.warn('Valores indefinidos o nulos encontrados');
-            console.log(`tds: ${tds}, tempe: ${tempe}, dist: ${dist}, boton: ${boton}, fotores: ${fotores}, fotoval: ${fotoval}`);
-            res.status(400).json({ error: 'Valores indefinidos o nulos en la solicitud' });
-            return;
-        }
-*/
         conn = db.getConnection();
-/*
-        const sql = constants.insertValorTF;
-        const executeResult = await conn.promise().query(sql, [tds, tempe, dist, boton, fotores, fotoval]);
 
-        console.log('Resultado de execute: ', executeResult);
-        // Verifica que 'executeResult' sea un arreglo antes de desestructurar
-        if (Array.isArray(executeResult)) {
-            const [insertResult] = executeResult;
-            console.log('Valores insertados en tf desde req.body', insertResult);
-        } else {
-            throw new Error('La ejecución de la consulta no devolvió un resultado válido');
-        }
-*/
+
         // Verifica que cada consulta retorne un resultado válido antes de desestructurar
         const [rowsT1] = await conn.promise().query(constants.SQLt1, [lastProcessedID]) || [];
         const [rowsT2] = await conn.promise().query(constants.SQLt2, [lastProcessedID]) || [];
