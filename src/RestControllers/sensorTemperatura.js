@@ -440,6 +440,34 @@ async function getValoresByDateTF(req,res){
 }
 
 
+async function getLastIdT2(req,res){
+    try{
+        var sql=constants.getLastIdt;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
+
 async function insertValoresT1(req, res) {
     try {
         var conn = db.getConnection();
@@ -481,7 +509,8 @@ async function insertValoresT2(req, res) {
             if (error) throw error;
 
             // Pasamos los valores de las columnas en el orden correcto
-            conn.query(sql, [req.body.dist,
+            conn.query(sql, [
+                req.body.dist,
             req.body.fotores,
             req.body.fotoval], (error, data, fields) => {
                 if (error) {
@@ -571,6 +600,21 @@ async function insertValoresTF(req, res) {
 }
 let lastProcessedID = 0;
 
+async function initializeLastProcessedID() {
+    let conn;
+    try {
+        conn = db.getConnection();
+        const [rows] = await conn.promise().query(constants.getLastIdtf);
+        if (rows.length > 0) {
+            lastProcessedID = rows[0].id;
+        }
+    } catch (error) {
+        console.error('Error al obtener el último ID de tf:', error);
+    } finally {
+        if (conn) await conn.end();
+    }
+}
+
 async function checkAndInsert() {
     let conn;
     try {
@@ -623,7 +667,8 @@ async function checkAndInsert() {
 }
 
 // Llamada periódica a la función con datos de ejemplo
-setInterval(checkAndInsert,5000);
-
+initializeLastProcessedID().then(() => {
+    setInterval(checkAndInsert, 5000);
+});
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
-insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, checkAndInsert};
+insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2};

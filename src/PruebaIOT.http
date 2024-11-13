@@ -1,22 +1,26 @@
+GET http://localhost:3000/iot/api/getLastIDt2
+Accept: application/json
+
+###
 POST http://localhost:3000/iot/api/insertarValoresTabla1
 Content-Type: application/json
 
-{"boton": 1}
+{"boton": 0}
 
 ###
 POST http://localhost:3000/iot/api/insertarValoresTabla2
 Content-Type: application/json
 
-{ "dist":200,
-  "fotores":100 ,
-  "fotoval":185 }
+{ "dist":150,
+  "fotores":800 ,
+  "fotoval":190 }
 
 ###
 POST http://localhost:3000/iot/api/insertarValoresTabla3
 Content-Type: application/json
 
-{"tds": 40,
-"tempe": 40}
+{"tds": 70,
+"tempe": 45}
 
 ###
 GET http://10.22.201.178:3000/iot/api/getValoresTablaF?id=99

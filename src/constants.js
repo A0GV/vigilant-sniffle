@@ -41,10 +41,12 @@ const getValoresSensores='/igetValores';
 // Links tabla 1
 const getValTable1='/getValoresTabla1';
 const postValoresT1='/insertarValoresTabla1';
+const getLastIDT1='/getLastIDt1';
 
 // Links tabla 2
 const getValoresT2='/getValoresTabla2';
 const postValoresT2='/insertarValoresTabla2';
+const getLastIDT2='/getLastIDt2';
 
 // Links tabla 3
 const getValoresT3='/getValoresTabla3';
@@ -88,6 +90,9 @@ const selecValorTF='SELECT * FROM tf';
 const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
 const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
 
+const getLastIdt='SELECT id FROM t2 ORDER BY fecha DESC LIMIT 1';
+const getLastIdtf='SELECT id FROM tf ORDER BY fecha DESC LIMIT 1';
+
 
 // Sql para la prube del bucle
 
@@ -104,5 +109,5 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt, getLastIDT1, getLastIDT2,getLastIdtf
 }
