@@ -17,7 +17,8 @@ const router = express.Router();
 
 
     router.get("/",function(req,res){
-    res.send('<html><head><title>API IoT</title></head><body><h1>Hello World!</h1><p>Link para el api temperatura:</p><a href="http://10.22.206.198:3000/IOT/api/getTemperatures">Get Temperatures</a></body></html>');});
+    res.send('<html><head><title>API IoT</title></head><body><h1>Hello World!</h1><p>Link para el api temperatura:</p><a href="http://localhost:3000/IOT/api/getTemperatures">Get Temperatures</a></body></html>');});
+
 
     /**
      * URL's que debes configurar en tu server para incluir tus endpoints que reciben peticiones para cada
@@ -52,6 +53,8 @@ const router = express.Router();
     router.get(constants.contextURL + constants.api + constants.getValoresT2, temperaturaController.getValoresT2);
     router.post(constants.contextURL + constants.api + constants.postValoresT2, temperaturaController.insertValoresT2);
     router.get(constants.contextURL + constants.api + constants.getLastIDT2, temperaturaController.getLastIdT2);
+    router.get(constants.contextURL + constants.api + constants.ultimoFotoVal, temperaturaController.getLastftVal);
+
     // Router tabla 3
     router.get(constants.contextURL + constants.api + constants.getValoresT3, temperaturaController.getValoresT3);
     router.post(constants.contextURL + constants.api + constants.postValoresT3, temperaturaController.insertValoresT3);
