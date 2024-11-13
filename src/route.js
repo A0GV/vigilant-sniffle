@@ -11,6 +11,7 @@ require('dotenv').config();
 const constants = require("./constants")
 const express = require('express');
 const temperaturaController = require('./RestControllers/sensorTemperatura.js');
+const {getLastIdT1} = require("./RestControllers/sensorTemperatura");
 const router = express.Router();
 
 
@@ -46,6 +47,7 @@ const router = express.Router();
     // Router tabla 1
     router.post(constants.contextURL + constants.api + constants.postValoresT1, temperaturaController.insertValoresT1);
     router.get(constants.contextURL + constants.api + constants.getValTable1, temperaturaController.getValoresT1);
+    router.get(constants.contextURL + constants.api + constants.getLastIDT1, temperaturaController.getLastIdT1)
     // Router tabla 2
     router.get(constants.contextURL + constants.api + constants.getValoresT2, temperaturaController.getValoresT2);
     router.post(constants.contextURL + constants.api + constants.postValoresT2, temperaturaController.insertValoresT2);

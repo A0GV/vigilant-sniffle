@@ -89,8 +89,9 @@ const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
 const selecValorTF='SELECT * FROM tf';
 const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
 const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
-
-const getLastIdt='SELECT id FROM t2 ORDER BY fecha DESC LIMIT 1';
+/***Metodos para obtener la ultumia ID*/
+const getLastIdt2='SELECT id FROM t2 ORDER BY fecha DESC LIMIT 1';
+const getLastIdt1='SELECT id FROM t1 ORDER BY fecha DESC LIMIT 1';
 const getLastIdtf='SELECT id FROM tf ORDER BY fecha DESC LIMIT 1';
 
 
@@ -109,5 +110,5 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt, getLastIDT1, getLastIDT2,getLastIdtf
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1
 }

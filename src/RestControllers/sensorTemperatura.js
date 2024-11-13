@@ -442,7 +442,32 @@ async function getValoresByDateTF(req,res){
 
 async function getLastIdT2(req,res){
     try{
-        var sql=constants.getLastIdt;
+        var sql=constants.getLastIdt2;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+async function getLastIdT1(req,res){
+    try{
+        var sql=constants.getLastIdt1;
         var conn=db.getConnection();
         conn.connect((error)=>{
             if(error) throw error;
@@ -671,4 +696,4 @@ initializeLastProcessedID().then(() => {
     setInterval(checkAndInsert, 5000);
 });
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
-insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2};
+insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1};
