@@ -491,6 +491,31 @@ async function getLastftVal(req,res){
         res.send(error);
     }
 }
+async function getLastftRes(req,res){
+    try{
+        var sql=constants.getlasFotoRes;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
 async function getLastButid(req,res){
     try{
         var sql=constants.getLastButtonID;
@@ -801,4 +826,4 @@ initializeLastProcessedID().then(() => {
 });
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
 insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
-    getLastftVal,getLastButid, getLastTDS, getLastDIST};
+    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes};

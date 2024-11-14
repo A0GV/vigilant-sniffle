@@ -49,6 +49,7 @@ const getValoresT2='/getValoresTabla2';
 const postValoresT2='/insertarValoresTabla2';
 const getLastIDT2='/getLastIDt2';
 const ultimoFotoVal='/getLastFotoVal';
+const ultimoFotoRes='/getLastFotoRes';
 const lastdisDistLink='/getlastDist';
 
 
@@ -122,6 +123,7 @@ const combinaciontrsTablas='INSERT INTO tf ( tds, tempe, dist, boton, fotores, f
 // Metodo solo para fotoval
 
 const getlasFotoVal ='SELECT fotoval from t2 order by fecha DESC  LIMIT 1';
+const getlasFotoRes ='SELECT fotores from t2 order by fecha DESC  LIMIT 1';
 
 
 
@@ -130,5 +132,6 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
+    ultimoFotoRes,getlasFotoRes
 }
