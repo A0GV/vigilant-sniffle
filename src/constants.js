@@ -42,16 +42,20 @@ const getValoresSensores='/igetValores';
 const getValTable1='/getValoresTabla1';
 const postValoresT1='/insertarValoresTabla1';
 const getLastIDT1='/getLastIDt1';
+const getIdAndButtonLink='/getButonId';
 
 // Links tabla 2
 const getValoresT2='/getValoresTabla2';
 const postValoresT2='/insertarValoresTabla2';
 const getLastIDT2='/getLastIDt2';
 const ultimoFotoVal='/getLastFotoVal';
+const lastdisDistLink='/getlastDist';
+
 
 // Links tabla 3
 const getValoresT3='/getValoresTabla3';
 const postValoresT3='/insertarValoresTabla3';
+const lastTDSLink='/getlastTDS';
 
 // Links tabla Final
 const getValoresTF='/getValoresTablaF';
@@ -80,16 +84,27 @@ const selectValores='SELECT * FROM sensores';
 /*
  *Queris para cada tabla/ Sensor
  *  */
-
+// Tabla 1
 const selecValorT1='SELECT * FROM t1';
 const insertValorT1='INSERT INTO t1 (boton) values (?)';
+const getLastButtonID='SELECT id, boton FROM t1 ORDER BY fecha DESC LIMIT 1';
+
+// Tabla 2
 const selecValorT2='SELECT * FROM t2';
 const insertValorT2='INSERT INTO t2(dist, fotores, fotoval) values (?,?,?)';
+const getlastDistQr='SELECT dist from t2 order by fecha DESC limit 1;';
+
+// Tabla 3
 const selecValorT3='SELECT * FROM t3';
 const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
+const getlastTDSQr='SELECT tds from t3 order by fecha DESC limit 1';
+
+// Tabla final
 const selecValorTF='SELECT * FROM tf';
 const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
 const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
+
+
 /***Metodos para obtener la ultumia ID*/
 const getLastIdt2='SELECT id FROM t2 ORDER BY fecha DESC LIMIT 1';
 const getLastIdt1='SELECT id FROM t1 ORDER BY fecha DESC LIMIT 1';
@@ -115,5 +130,5 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink
 }

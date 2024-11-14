@@ -1,3 +1,15 @@
+GET http://localhost:3000/iot/api/getlastTDS
+Accept: application/json
+
+###
+GET http://localhost:3000/iot/api/getlastDist
+Accept: application/json
+
+###
+GET http://localhost:3000/iot/api/getButonId
+Accept: application/json
+
+###
 GET http://localhost:3000/iot/api/getLastFotoVal
 Accept: application/json
 

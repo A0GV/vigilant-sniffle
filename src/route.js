@@ -48,16 +48,20 @@ const router = express.Router();
     // Router tabla 1
     router.post(constants.contextURL + constants.api + constants.postValoresT1, temperaturaController.insertValoresT1);
     router.get(constants.contextURL + constants.api + constants.getValTable1, temperaturaController.getValoresT1);
-    router.get(constants.contextURL + constants.api + constants.getLastIDT1, temperaturaController.getLastIdT1)
+    router.get(constants.contextURL + constants.api + constants.getLastIDT1, temperaturaController.getLastIdT1);
+    router.get(constants.contextURL + constants.api + constants.getIdAndButtonLink, temperaturaController.getLastButid);
+
     // Router tabla 2
     router.get(constants.contextURL + constants.api + constants.getValoresT2, temperaturaController.getValoresT2);
     router.post(constants.contextURL + constants.api + constants.postValoresT2, temperaturaController.insertValoresT2);
     router.get(constants.contextURL + constants.api + constants.getLastIDT2, temperaturaController.getLastIdT2);
     router.get(constants.contextURL + constants.api + constants.ultimoFotoVal, temperaturaController.getLastftVal);
+    router.get(constants.contextURL + constants.api + constants.lastdisDistLink, temperaturaController.getLastDIST);
 
     // Router tabla 3
     router.get(constants.contextURL + constants.api + constants.getValoresT3, temperaturaController.getValoresT3);
     router.post(constants.contextURL + constants.api + constants.postValoresT3, temperaturaController.insertValoresT3);
+    router.get(constants.contextURL + constants.api + constants.lastTDSLink, temperaturaController.getLastTDS);
 
     // Router tabla F
     router.get(constants.contextURL + constants.api + constants.getValoresTF, temperaturaController.getValoresTF);
