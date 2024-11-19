@@ -277,6 +277,36 @@ async function insertValores(req, res) {
     }
 }
 
+async function insertValoresT5METHOD(req, res) {
+    try {
+        var conn = db.getConnection();
+        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
+        var sql = constants.postFotoValT5SQL;
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            // Pasamos los valores de las columnas en el orden correcto
+            conn.query(sql, [req.body.fotoval], (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
 async function getValores(req,res){
     try{
         var sql=constants.selectValores;
@@ -406,6 +436,31 @@ async function getValoresTF(req,res){
         res.send(error);
     }
 }
+async function getValoresT5(req,res){
+    try{
+        var sql=constants.getValorT5SQL;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
 
 async function getValoresByDateTF(req,res){
     try{
@@ -466,9 +521,59 @@ async function getLastIdT2(req,res){
     }
 }
 
+async function getLastIdT5(req,res){
+    try{
+        var sql=constants.lastFotovalIDSQL;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
 async function getLastftVal(req,res){
     try{
         var sql=constants.getlasFotoVal;
+        var conn=db.getConnection();
+        conn.connect((error)=>{
+            if(error) throw error;
+            conn.query(sql,(error,data,fields)=>{
+                if(error){
+                    res.status(500);
+                    res.send(error.message);
+                }else{
+                    console.log(data);
+                    res.json({
+                        data,
+                    });
+                }
+                conn.end();
+            });
+        });
+    }catch(error){
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}async function getLastftValt5Method(req,res){
+    try{
+        var sql=constants.lastFotovalSQL;
         var conn=db.getConnection();
         conn.connect((error)=>{
             if(error) throw error;
@@ -786,15 +891,13 @@ async function checkAndInsert() {
             const idT1 = rowsT1[0].id;
             const idT2 = rowsT2[0].id;
             const idT3 = rowsT3[0].id;
-
-            if (idT1 === idT2 && idT2 === idT3) {
+            if (idT1 === idT2 && idT2 === idT3 && idT5) {
                 const combinacionDeValores = {
                     tds: rowsT3[0].tds,       // Viene de t3
                     tempe: rowsT3[0].tempe,   // Viene de t3
                     dist: rowsT2[0].dist,     // Viene de t2
                     boton: rowsT1[0].boton,   // Viene de t1
                     fotores: rowsT2[0].fotores, // Viene de t2
-                    fotoval: rowsT2[0].fotoval  // Tomamos el valor de t1
                 };
 
                 const combinacionSQL = constants.combinaciontrsTablas;
@@ -804,7 +907,6 @@ async function checkAndInsert() {
                     combinacionDeValores.dist,
                     combinacionDeValores.boton,
                     combinacionDeValores.fotores,
-                    combinacionDeValores.fotoval,
                 ]);
 
                 lastProcessedID = idT1;
@@ -826,4 +928,4 @@ initializeLastProcessedID().then(() => {
 });
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
 insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
-    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes};
+    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD};

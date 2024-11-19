@@ -12,6 +12,7 @@ const constants = require("./constants")
 const express = require('express');
 const temperaturaController = require('./RestControllers/sensorTemperatura.js');
 const {getLastIdT1} = require("./RestControllers/sensorTemperatura");
+const {contextURL} = require("./constants");
 const router = express.Router();
 
 
@@ -63,6 +64,12 @@ const router = express.Router();
     router.get(constants.contextURL + constants.api + constants.getValoresT3, temperaturaController.getValoresT3);
     router.post(constants.contextURL + constants.api + constants.postValoresT3, temperaturaController.insertValoresT3);
     router.get(constants.contextURL + constants.api + constants.lastTDSLink, temperaturaController.getLastTDS);
+
+    // ROuter tabla 5
+    router.get(constants.contextURL + constants.api + constants.getValoresT5Link, temperaturaController.getValoresT5);
+    router.get(constants.contextURL + constants.api + constants.lastFotvalLink, temperaturaController.getLastftValt5Method);
+    router.get(constants.contextURL + constants.api + constants.lastFotovalIdLink, temperaturaController.getLastIdT5);
+    router.post(constants.contextURL + constants.api + constants.postFotoValT5Link, temperaturaController.insertValoresT5METHOD);
 
     // Router tabla F
     router.get(constants.contextURL + constants.api + constants.getValoresTF, temperaturaController.getValoresTF);

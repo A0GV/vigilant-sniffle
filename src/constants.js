@@ -58,6 +58,12 @@ const getValoresT3='/getValoresTabla3';
 const postValoresT3='/insertarValoresTabla3';
 const lastTDSLink='/getlastTDS';
 
+// Links tabla 5 (Espero y sea la ultima, monica.............................................................................................)
+const getValoresT5Link='/getValoresTabla5';
+const lastFotvalLink='/getlastFotoval';
+const lastFotovalIdLink='/getlastFotovalId';
+const postFotoValT5Link='/insertFotoValT5';
+
 // Links tabla Final
 const getValoresTF='/getValoresTablaF';
 const postValoresTF='/insertarValoresTablaF';
@@ -100,6 +106,11 @@ const selecValorT3='SELECT * FROM t3';
 const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
 const getlastTDSQr='SELECT tds from t3 order by fecha DESC limit 1';
 
+// Tabla 5
+const getValorT5SQL='SELECT * FROM t5';
+const lastFotovalSQL='SELECT fotoval FROM t5 ORDER BY fecha DESC limit 1';
+const lastFotovalIDSQL='SELECT id FROM t5 ORDER BY fecha DESC limit 1';
+const postFotoValT5SQL='INSERT INTO t5(fotoval) values (?)';
 // Tabla final
 const selecValorTF='SELECT * FROM tf';
 const insertValorTF='INSERT INTO tf (tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)';
@@ -109,6 +120,7 @@ const selectValoresByDateTF='SELECT * FROM tf WHERE fecha between ? and ?';
 /***Metodos para obtener la ultumia ID*/
 const getLastIdt2='SELECT id FROM t2 ORDER BY fecha DESC LIMIT 1';
 const getLastIdt1='SELECT id FROM t1 ORDER BY fecha DESC LIMIT 1';
+const getLastIdt3='SELECT id FROM t3 ORDER BY fecha DESC LIMIT 1';
 const getLastIdtf='SELECT id FROM tf ORDER BY fecha DESC LIMIT 1';
 
 
@@ -117,6 +129,7 @@ const getLastIdtf='SELECT id FROM tf ORDER BY fecha DESC LIMIT 1';
 const SQLt1='SELECT * FROM t1 WHERE id > ? ORDER BY id ASC LIMIT 1';
 const SQLt2='SELECT * FROM t2 WHERE id > ? ORDER BY id ASC LIMIT 1';
 const SQLt3='SELECT * FROM t3 WHERE id > ? ORDER BY id ASC LIMIT 1';
+const SQLt5='SELECT * FROM t5 WHERE id > ? ORDER BY id ASC LIMIT 1';
 const combinaciontrsTablas='INSERT INTO tf ( tds, tempe, dist, boton, fotores, fotoval) VALUES (?, ?, ?, ?, ?, ?)'
 //Implemented Queries
 
@@ -132,6 +145,6 @@ module.exports= {
    getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
     ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
-    ultimoFotoRes,getlasFotoRes
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, SQLt5,combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
+    ultimoFotoRes,getlasFotoRes,getLastIdt3, lastFotovalSQL, lastFotovalIDSQL, getValorT5SQL, getValoresT5Link, lastFotvalLink, lastFotovalIdLink, postFotoValT5Link, postFotoValT5SQL
 }
