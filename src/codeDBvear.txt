@@ -1,5 +1,4 @@
 use iot;
-
 create table tf(
 id int not null auto_increment,
 tds float default null,
@@ -7,9 +6,12 @@ tempe float default null,
 dist float default null,
 boton int default 0,
 fotores float default 0,
+fotoval float default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
+)
+
 
 create table t1(
 id int not null auto_increment,
@@ -17,6 +19,8 @@ boton int default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
+)
+
 
 create table t2(
 id int not null auto_increment,
@@ -26,6 +30,8 @@ fotoval int default 0,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
+)
+
 
 create table t3(
 id int not null auto_increment,
@@ -34,10 +40,66 @@ tempe float default null,
 fecha datetime default CURRENT_TIMESTAMP,
 primary key(id)
 );
-
-ALTER table tf
-Add column fotoval int default null
+)
 
 
-INSERT into tf (tds,tempe, dist, boton, fotores, fotoval) values (7, 10, 200, 1, 1, 250);
 
+CREATE table t5(
+id int not null auto_increment,
+fotoval varchar(5) default 'close',
+fecha datetime default CURRENT_TIMESTAMP,
+primary key(id)
+);
+
+
+
+ALTER table t3
+change column ph tds int default null
+
+
+TRUNCATE table t1
+
+TRUNCATE table t2
+
+TRUNCATE table t3
+
+TRUNCATE table tf
+
+
+ALTER TABLE tf
+MODIFY COLUMN fotoval float default 0 AFTER fecha;
+
+ALTER TABLE tf
+MODIFY COLUMN fecha datetime default CURRENT_TIMESTAMP AFTER fotoval;
+
+
+
+SELECT id, boton FROM t1 ORDER BY fecha DESC LIMIT 1;
+
+
+ALTER TABLE tf
+MODIFY COLUMN dist FLOAT(10,2);
+
+
+
+SELECT dist from t2 order by fecha DESC limit 1;
+
+SELECT tds from t3 order by fecha DESC limit 1;
+
+
+insert into t2( dist)values(2);
+
+INSERT into tf  (tds,tempe, dist, boton, fotores, fotoval) values (7, 20, 0, 0, 1, 250);
+
+INSERT INTO t2 (fotoval, dist) values (2,37)
+
+
+INSERT INTO t3 (fotoval, dist) values (2,11)
+
+
+INSERT INTO t3 (tds) values (501)
+
+
+INSERT INTO t2 (fotoval) values (3)
+
+describe tf
