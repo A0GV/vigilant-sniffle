@@ -30,7 +30,7 @@ const router = require('./route')
 const app = express();
 const port = constants.serverPort;
 
-
+app.use(express.static('C:/Users/adolf/Desktop/Api_Example_IOT/src/public'))
 
 /**
  * Configuración del servidor web.
