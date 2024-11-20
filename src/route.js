@@ -17,8 +17,10 @@ const router = express.Router();
 
 
 
-    router.get("/",function(req,res){
-    res.send('<html><head><title>API IoT</title></head><body><h1>Hello World!</h1><p>Link para el api temperatura:</p><a href="http://localhost:3000/IOT/api/getTemperatures">Get Temperatures</a></body></html>');});
+router.get("/", function(req, res) {
+    res.send('<html><head><title>API IoT</title></head><body><h1>Hello World!</h1><p>Link para el api temperatura:</p><a href="/DataView.html">Get Temperatures</a></body></html>');
+});
+
 
 
     /**
