@@ -5,42 +5,6 @@ const constants = require("../constants")
 require('dotenv').config();
 
 
-async function insertValores(req, res) {
-    try {
-        var conn = db.getConnection();
-        // Actualizamos la consulta SQL para incluir todas las columnas menos `id_data_taked`
-        var sql = constants.insertValores;
-
-        conn.connect((error) => {
-            if (error) throw error;
-
-            // Pasamos los valores de las columnas en el orden correcto
-            conn.query(sql, [
-                req.body.ph,
-                req.body.tempe,
-                req.body.dist,
-                req.body.boton,
-                req.body.fotores
-            ], (error, data, fields) => {
-                if (error) {
-                    res.status(500);
-                    res.send(error.message);
-                } else {
-                    console.log(data);
-                    res.json({
-                        data,
-                    });
-                }
-                conn.end();
-            });
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(500);
-        res.send(error);
-    }
-}
-
 async function insertValoresT5METHOD(req, res) {
     try {
         var conn = db.getConnection();
@@ -71,31 +35,6 @@ async function insertValoresT5METHOD(req, res) {
     }
 }
 
-async function getValores(req,res){
-    try{
-        var sql=constants.selectValores;
-        var conn=db.getConnection();
-        conn.connect((error)=>{
-            if(error) throw error;
-            conn.query(sql,(error,data,fields)=>{
-                if(error){
-                    res.status(500);
-                    res.send(error.message);
-                }else{
-                    console.log(data);
-                    res.json({
-                        data,
-                    });
-                }
-                conn.end();
-            });
-        });
-    }catch(error){
-        console.log(error);
-        res.status(500);
-        res.send(error);
-    }
-}
 
 async function getValoresT1(req,res){
     try{
@@ -727,6 +666,5 @@ async function checkAndInsert() {
 initializeLastProcessedID().then(() => {
     setInterval(checkAndInsert, 5000);
 });
-module.exports = { insertValores, getValores,
-insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
+module.exports = {insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
     getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD, getAllDistMETHOD};
