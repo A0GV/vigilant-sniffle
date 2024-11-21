@@ -287,31 +287,7 @@ async function getLastIdT5(req,res){
     }
 }
 
-async function getLastftVal(req,res){
-    try{
-        var sql=constants.getlasFotoVal;
-        var conn=db.getConnection();
-        conn.connect((error)=>{
-            if(error) throw error;
-            conn.query(sql,(error,data,fields)=>{
-                if(error){
-                    res.status(500);
-                    res.send(error.message);
-                }else{
-                    console.log(data);
-                    res.json({
-                        data,
-                    });
-                }
-                conn.end();
-            });
-        });
-    }catch(error){
-        console.log(error);
-        res.status(500);
-        res.send(error);
-    }
-}async function getLastftValt5Method(req,res){
+async function getLastftValt5Method(req,res){
     try{
         var sql=constants.lastFotovalSQL;
         var conn=db.getConnection();
@@ -667,4 +643,4 @@ initializeLastProcessedID().then(() => {
     setInterval(checkAndInsert, 5000);
 });
 module.exports = {insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
-    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD, getAllDistMETHOD};
+    getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD, getAllDistMETHOD};

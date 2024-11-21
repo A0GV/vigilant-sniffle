@@ -36,7 +36,6 @@ router.get("/", function(req, res) {
     router.get(constants.contextURL + constants.api + constants.getValoresT2, temperaturaController.getValoresT2);
     router.post(constants.contextURL + constants.api + constants.postValoresT2, temperaturaController.insertValoresT2);
     router.get(constants.contextURL + constants.api + constants.getLastIDT2, temperaturaController.getLastIdT2);
-    router.get(constants.contextURL + constants.api + constants.ultimoFotoVal, temperaturaController.getLastftVal);
     router.get(constants.contextURL + constants.api + constants.ultimoFotoRes, temperaturaController.getLastftRes);
     router.get(constants.contextURL + constants.api + constants.lastdisDistLink, temperaturaController.getLastDIST);
     router.get(constants.contextURL + constants.api + constants.allDistLink, temperaturaController.getAllDistMETHOD);

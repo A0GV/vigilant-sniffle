@@ -37,7 +37,6 @@ const getIdAndButtonLink='/getButonId';
 const getValoresT2='/getValoresTabla2';
 const postValoresT2='/insertarValoresTabla2';
 const getLastIDT2='/getLastIDt2';
-const ultimoFotoVal='/getLastFotoVal';
 const ultimoFotoRes='/getLastFotoRes';
 const lastdisDistLink='/getlastDist';
 const allDistLink='/getAllDist';
@@ -126,6 +125,6 @@ const getlasFotoRes ='SELECT fotores from t2 order by fecha DESC  LIMIT 1';
 module.exports= {
    dbHost,dbPort,dbUser,dbPass,dbName,serverPort, contextURL,api,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
-    getValoresByDateTF, SQLt1, SQLt2, SQLt3, SQLt5,combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
+    getValoresByDateTF, SQLt1, SQLt2, SQLt3, SQLt5,combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
     ultimoFotoRes,getlasFotoRes,getLastIdt3, lastFotovalSQL, lastFotovalIDSQL, getValorT5SQL, getValoresT5Link, lastFotvalLink, lastFotovalIdLink, postFotoValT5Link, postFotoValT5SQL, getAllDistQr, allDistLink
 }
