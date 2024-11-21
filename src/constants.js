@@ -22,17 +22,6 @@ const serverPort = process.env.SERVER_PORT||3000; ;
 const contextURL = '/iot'; //If needed, project context
 const api = '/api'; // Sugested API URL
 
-//SENSOR 1 URLS. Configurar URLS por cada sensor.
-const getTemperatureSensor = '/getTemperatures'
-const getTemperatureSensorByDate = '/getTemperatures'
-const postTemperatureSensor = '/insertTemperature'
-const getDistanciaSensor='/getDistancias'
-const getDistanciaSensorByDate='/getDistanciasByDate'
-const postDistanciaSensor='/insertDistancias';
-const postValoresSensores='/insertValores';
-const getValoresSensores='/igetValores';
-
-
 /**
  * Las siguientes constantes son para la tabla con los todos los valores, la tabla t1, t2, t3
  * */
@@ -79,15 +68,7 @@ const getValoresByDateTF='getValoresByDate';
  * DB Queries
  * Agregar queries por sensor.
  */
-const selectTemperature = 'SELECT * FROM temps';
-const selectTemperatureByDate = 'SELECT * FROM temps WHERE fecha between ? and ?';
-const insertTemperature = 'INSERT INTO temps (valor) values (?)';
-const selectDistancia='SELECT * FROM distancias';
-const selectDistanciaByDate='SELECT * FROM distancias WHERE date between ? and ?';
-const insertDistancia='INSERT INTO distancias (distancia) values (?)';
 
-const insertValores='INSERT INTO sensores(tds, tempe, dist, boton, fotores) values (?,?,?,?,?)';
-const selectValores='SELECT * FROM sensores';
 
 /*
  *Queris para cada tabla/ Sensor
@@ -143,9 +124,7 @@ const getlasFotoRes ='SELECT fotores from t2 order by fecha DESC  LIMIT 1';
 
 
 module.exports= {
-   dbHost,dbPort,dbUser,dbPass,dbName,serverPort, contextURL,api,getTemperatureSensor,
-   getTemperatureSensorByDate,postTemperatureSensor,selectTemperature,selectTemperatureByDate,insertTemperature, getDistanciaSensor
-    ,getDistanciaSensorByDate,postDistanciaSensor,selectDistancia,selectDistanciaByDate,insertDistancia, postValoresSensores,insertValores, getValoresSensores, selectValores,
+   dbHost,dbPort,dbUser,dbPass,dbName,serverPort, contextURL,api,
     selecValorT1,insertValorT1,selecValorT2,insertValorT2, selecValorT3, insertValorT3, selecValorTF, insertValorTF, selectValoresByDateTF, getValTable1,getValoresT2, getValoresT3, getValoresTF, postValoresT1, postValoresT3, postValoresT2, postValoresTF,
     getValoresByDateTF, SQLt1, SQLt2, SQLt3, SQLt5,combinaciontrsTablas, getLastIdt2, getLastIDT1, getLastIDT2,getLastIdtf,getLastIdt1, getlasFotoVal,ultimoFotoVal,getLastButtonID, getIdAndButtonLink, getlastTDSQr, getlastDistQr,lastTDSLink, lastdisDistLink,
     ultimoFotoRes,getlasFotoRes,getLastIdt3, lastFotovalSQL, lastFotovalIDSQL, getValorT5SQL, getValoresT5Link, lastFotvalLink, lastFotovalIdLink, postFotoValT5Link, postFotoValT5SQL, getAllDistQr, allDistLink

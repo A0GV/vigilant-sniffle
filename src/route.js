@@ -23,29 +23,7 @@ router.get("/", function(req, res) {
 
 
 
-    /**
-     * URL's que debes configurar en tu server para incluir tus endpoints que reciben peticiones para cada
-     * sensor.
-     *
-     * Hay 3 métodos actualmente, 1 get HTTP y 2 post HTTP. En todos, el primer argumento es una url (creada de manera parametrizada con constantes)
-     * El segundo método es la función js que responderá a las peticiones de dicha URL. Estas están en el archivo sensorTemperatura.js
-     *
-     * Para otros sensores, puedes agregar otros archivos y configurar sus url's.
-     *
-     */
-    /** URLs de temperatura */
-    router.get(constants.contextURL + constants.api + constants.getTemperatureSensor, temperaturaController.getLogTemperatura);
-    router.post(constants.contextURL + constants.api + constants.getTemperatureSensorByDate, temperaturaController.getLogByDateBetween);
-    router.post(constants.contextURL + constants.api + constants.postTemperatureSensor, temperaturaController.insertLogTemperatura);
 
-    /** URLs de distancia (usando el mismo controlador) */
-    router.get(constants.contextURL + constants.api + constants.getDistanciaSensor, temperaturaController.getLogDistancia);
-    router.post(constants.contextURL + constants.api + constants.getDistanciaSensorByDate, temperaturaController.getLogByDateBetweenD);
-    router.post(constants.contextURL + constants.api + constants.postDistanciaSensor, temperaturaController.insertLogDistancia);
-
-    /**URLs de la tabla final que vamos a usar*/
-    router.post(constants.contextURL + constants.api + constants.postValoresSensores, temperaturaController.insertValores);
-    router.get(constants.contextURL + constants.api + constants.getValoresSensores, temperaturaController.getValores);
 
     /** URLs de las tablas 1,2,3, F **/
     // Router tabla 1
