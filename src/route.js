@@ -61,6 +61,7 @@ router.get("/", function(req, res) {
     router.get(constants.contextURL + constants.api + constants.ultimoFotoVal, temperaturaController.getLastftVal);
     router.get(constants.contextURL + constants.api + constants.ultimoFotoRes, temperaturaController.getLastftRes);
     router.get(constants.contextURL + constants.api + constants.lastdisDistLink, temperaturaController.getLastDIST);
+    router.get(constants.contextURL + constants.api + constants.allDistLink, temperaturaController.getAllDistMETHOD);
 
     // Router tabla 3
     router.get(constants.contextURL + constants.api + constants.getValoresT3, temperaturaController.getValoresT3);

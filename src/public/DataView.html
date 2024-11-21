@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <script src="C:\Users\adolf\Desktop\Api_Example_IOT\src\public\PublicFuns.js" defer></script>
-    <link rel="stylesheet" href="C:\Users\adolf\Desktop\Api_Example_IOT\src\public\StyleShit.css">
-    <title>Data_View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfica de Nivel de Agua</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Cargando Chart.js -->
 </head>
 <body>
-<section>
-    <h1> Bienvenido a Tinaco Maligno</h1>
-    <iframe width="600" height="450" src="https://lookerstudio.google.com/embed/reporting/c6c00de7-21b3-4069-8b2c-975b814a59bf/page/efcUE" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-</section>
+<h1>Nivel de Agua en el Tinaco</h1>
+
+<!-- Aquí va el canvas donde se dibujará la gráfica -->
+<canvas id="waterTankChart" width="400" height="200"></canvas>
+
+<!-- Agregar el script con el código JavaScript -->
+<script src="PublicFuns.js"></script>
 </body>
 </html>

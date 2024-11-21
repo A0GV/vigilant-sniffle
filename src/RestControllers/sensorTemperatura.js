@@ -521,6 +521,43 @@ async function getLastIdT2(req,res){
     }
 }
 
+async function getAllDistMETHOD(req, res) {
+    try {
+        var sql = constants.getAllDistQr; // Tu consulta SQL que ya selecciona 'dist' y 'fecha'
+        var conn = db.getConnection();
+
+        conn.connect((error) => {
+            if (error) throw error;
+
+            conn.query(sql, (error, data, fields) => {
+                if (error) {
+                    res.status(500);
+                    res.send(error.message);
+                } else {
+                    console.log(data);
+
+                    // Mapear los datos a un formato adecuado: [{dist, fecha}, {dist, fecha}, ...]
+                    const result = data.map(item => ({
+                        dist: item.dist,
+                        fecha: item.fecha
+                    }));
+
+                    // Enviar el resultado con ambos valores
+                    res.json({
+                        data: result,
+                    });
+                }
+                conn.end();
+            });
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500);
+        res.send(error);
+    }
+}
+
+
 async function getLastIdT5(req,res){
     try{
         var sql=constants.lastFotovalIDSQL;
@@ -891,7 +928,7 @@ async function checkAndInsert() {
             const idT1 = rowsT1[0].id;
             const idT2 = rowsT2[0].id;
             const idT3 = rowsT3[0].id;
-            if (idT1 === idT2 && idT2 === idT3 && idT5) {
+            if (idT1 === idT2 && idT2 === idT3 ) {
                 const combinacionDeValores = {
                     tds: rowsT3[0].tds,       // Viene de t3
                     tempe: rowsT3[0].tempe,   // Viene de t3
@@ -928,4 +965,4 @@ initializeLastProcessedID().then(() => {
 });
 module.exports = {insertLogTemperatura, getLogTemperatura,getLogByDateBetween,getLogDistancia,getLogByDateBetweenD,insertLogDistancia, insertValores, getValores,
 insertValoresT1, getValoresT1, insertValoresT2, getValoresT2, insertValoresT3, getValoresT3, insertValoresTF, getValoresTF, getValoresByDateTF, getLastIdT2, getLastIdT1,
-    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD};
+    getLastftVal,getLastButid, getLastTDS, getLastDIST,getLastftRes, getLastftValt5Method, getLastIdT5, getValoresT5, insertValoresT5METHOD, getAllDistMETHOD};

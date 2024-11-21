@@ -1,3 +1,11 @@
+GET http://localhost:3000/iot/api/getAllDist
+Accept: application/json
+
+###
+GET http://localhost:3000/iot/api/getlastFotovalT5
+Accept: application/json
+
+###
 POST http://localhost:3000/iot/api/insertFotoValT5
 Content-Type: application/json
 
