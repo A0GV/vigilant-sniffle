@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.center {
+    width: 80%;
+    margin: auto;
+    padding-top: 20px; /* Añadir espacio interno superior */
+    padding-bottom: 20px; /* Añadir espacio interno inferior */
+}
+
+h1 {
+    margin: 20px 0; /* Separación arriba y abajo */
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+
+
+h1 {
+    margin-bottom: 20px;
+}

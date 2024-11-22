@@ -6,13 +6,27 @@
     <title>Gráfica de Nivel de Agua</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Cargando Chart.js -->
 </head>
-<body>
-<h1>Nivel de Agua en el Tinaco</h1>
+<body onload="isOG()">
+<section>
+    <div class="center">
+        <article>
+            <div id="hidde">
+                <h3> Ingrese la altura total de su tinaco</h3>
+                <input type="number" id="altTotTinaco" >
+                <button onclick="guardaAlt()">Guardar</button>
+            </div>
+        </article>
+        <h1>Nivel de Agua en el Tinaco</h1>
 
-<!-- Aquí va el canvas donde se dibujará la gráfica -->
-<canvas id="waterTankChart" width="400" height="200"></canvas>
-
+        <div class="container">
+            <span>
+                <canvas id="waterTankChart" ></canvas>
+            </span>
+        </div>
+    </div>
+</section>
 <!-- Agregar el script con el código JavaScript -->
 <script src="PublicFuns.js"></script>
+
 </body>
 </html>
