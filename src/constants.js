@@ -81,7 +81,7 @@ const getLastButtonID='SELECT id, boton FROM t1 ORDER BY fecha DESC LIMIT 1';
 const selecValorT2='SELECT * FROM t2';
 const insertValorT2='INSERT INTO t2(dist, fotores, fotoval) values (?,?,?)';
 const getlastDistQr='SELECT dist from t2 order by fecha DESC limit 1;';
-const getAllDistQr='SELECT dist,fecha from t2 order by fecha DESC;';
+const getAllDistQr='SELECT dist,fecha from t2 order by fecha ASC ;';
 
 // Tabla 3
 const selecValorT3='SELECT * FROM t3';
