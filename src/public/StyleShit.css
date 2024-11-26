@@ -1,10 +1,51 @@
+head{
+    background-color: #aec3f3;
+}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
     margin: 20px;
+    color-scheme: #a6c6d7,#aec3f3,#6793e6,#0146ab,#154500;
+    
+}
+
+button {
+    background-color: #6793e6; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    display: inline-block; /* Mostrar en línea */
+    font-size: 16px; /* Tamaño de la fuente */
+    margin: 10px 2px; /* Margen */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+button:hover {
+    background-color: #0146ab; /* Color de fondo al pasar el cursor */
+}
+
+input {
+    background-color: #f0f0f0; /* Color de fondo */
+    color: #333; /* Color del texto */
+    border: 1px solid #ccc; /* Borde */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    margin: 10px 0; /* Margen */
+    width: 25%; /* Ancho completo */
+    box-sizing: border-box; /* Incluir el borde y el padding en el ancho total */
+}
+
+input:focus {
+    border-color: #6793e6; /* Color del borde al enfocar */
+    outline: none; /* Sin contorno */
+    background-color: #e6f0ff; /* Color de fondo al enfocar */
 }
 
 .center {
