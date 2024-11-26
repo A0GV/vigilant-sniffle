@@ -12,6 +12,11 @@ body {
 
 }
 
+#waterTankChart{
+    width: "800";
+    height: "600";
+}
+
 .hidden{
     display: none;
 }

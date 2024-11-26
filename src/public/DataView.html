@@ -15,11 +15,11 @@
     <title>Tinaco Inteligente Control</title>
     <div class="center">
         <article>
+            <button onclick="resett()">Reset</button>
             <div id="hidde">
                 <h3> Ingrese la altura total de su tinaco</h3>
                 <input type="number" id="altTotTinaco" >
                 <button onclick="guardaAlt()">Guardar</button>
-                <button onclick="resett()">Reset</button>
                 <button onclick="menu.OG=1">noset</button>
             </div>
         </article>
@@ -27,7 +27,7 @@
 
         <div class="container">
             <span>
-                <canvas id="waterTankChart" ></canvas>
+                <canvas id="waterTankChart" width="500" height="400"></canvas>
             </span>
         </div>
     </div>

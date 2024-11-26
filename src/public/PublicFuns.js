@@ -1,6 +1,13 @@
 let menu=JSON.parse(localStorage.getItem('menu'))||{OG:0, height:0};
 
 
+function resett() {
+    menu = { OG: 0, height: 0 };
+    localStorage.setItem('menu', JSON.stringify(menu));
+    console.log('Menu reseteado:', menu);
+    document.getElementById('hidde').classList.remove('hidden');
+    document.getElementById('waterTankChart').style.display = 'none';
+}
 function isOG(){
     console.log(`Valor actual de OG, ${menu.OG}`);
     if (menu.OG===1) {
