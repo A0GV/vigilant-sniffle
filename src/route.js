@@ -44,6 +44,7 @@ router.get("/", function(req, res) {
     router.get(constants.contextURL + constants.api + constants.getValoresT3, temperaturaController.getValoresT3);
     router.post(constants.contextURL + constants.api + constants.postValoresT3, temperaturaController.insertValoresT3);
     router.get(constants.contextURL + constants.api + constants.lastTDSLink, temperaturaController.getLastTDS);
+    router.get(constants.contextURL + constants.api + constants.getTempeLink, temperaturaController.getTempeMETODO);
 
     // ROuter tabla 5
     router.get(constants.contextURL + constants.api + constants.getValoresT5Link, temperaturaController.getValoresT5);

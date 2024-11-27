@@ -1,4 +1,4 @@
-GET http://localhost:3000/iot/api/getAllDist
+GET http://localhost:3000/iot/api/getallTempe
 Accept: application/json
 
 ###

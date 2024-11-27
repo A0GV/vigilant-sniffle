@@ -88,7 +88,7 @@ const getAllDistQr='SELECT dist,fecha from t2 order by fecha ASC ;';
 const selecValorT3='SELECT * FROM t3';
 const insertValorT3='INSERT INTO t3 (tds, tempe) values (?,?)';
 const getlastTDSQr='SELECT tds from t3 order by fecha DESC limit 1';
-const getAllTempeSQL='SELECT tempe, fecha from t3 order by fecha ASC;';
+const getAllTempeSQL='SELECT tempe from t3 order by fecha DESC limit 1;';
 
 // Tabla 5
 const getValorT5SQL='SELECT * FROM t5';

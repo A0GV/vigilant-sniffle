@@ -34,7 +34,7 @@ function crearGrafica() {
     let myChart;
 
     const actualizarGrafica = () => {
-        fetch('http://localhost:3000/iot/api/getAllDist')
+        fetch('http://10.22.198.234:3000/iot/api/getAllDist')
             .then(response => response.json())
             .then(response => {
                 const data = response.data;
@@ -97,3 +97,72 @@ function crearGrafica() {
     // Actualizar la gráfica cada 5 segundos
     setInterval(actualizarGrafica, 5000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Llamar a la función para actualizar la temperatura
+    actualizarTemperatura();
+
+    // Actualizar la temperatura cada 5 segundos
+    setInterval(actualizarTemperatura, 5000);
+});
+
+function actualizarTemperatura() {
+    fetch('http://10.22.198.234:3000/iot/api/getallTempe')
+        .then(response => response.json())
+        .then(response => {
+            const data = response.data;
+
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error('Los datos no tienen el formato esperado o están vacíos.');
+                return;
+            }
+
+            const temperatura = data[0].tempe; // Accedemos al primer objeto
+            console.log(temperatura);
+
+            const temperaturaElement = document.querySelector('.data-temperature');
+            console.log(temperaturaElement); // Verifica si el elemento se encuentra
+
+            if (temperaturaElement && temperatura !== undefined) {
+                temperaturaElement.innerText = `Temperatura: ${temperatura} °C`;
+            } else {
+                console.error('El elemento con la clase "data-temperature" no se encontró.');
+            }
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
+}
+
+function actualizarFotoVal() {
+    fetch('http://10.22.198.234:3000/iot/api/getlastFotovalT5')
+        .then(response => response.json())
+        .then(response => {
+            const data = response.data;
+
+            if (!Array.isArray(data) || data.length === 0) {
+                console.error('Los datos no tienen el formato esperado o están vacíos.');
+                return;
+            }
+
+            const datxt = data[0].fotoval; // Accedemos al primer objeto
+            console.log(datxt);
+            console.log(data);
+            const txtElement = document.querySelector('.data-fotoval');
+            console.log(txtElement); // Verifica si el elemento se encuentra
+
+            if (txtElement && datxt !== undefined && datxt === 'closed') {
+                txtElement.innerText = `Actualmente está: Cerrado`;
+            } else {
+                txtElement.innerText = `Áctualmente está: Abierto`;
+                console.error('El elemento con la clase "data-temperature" no se encontró.');
+            }
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
+}
+
+
+// Llamar a la función para actualizar la temperatura
+actualizarTemperatura();
+actualizarFotoVal
+// Actualizar la temperatura cada 5 segundos
+setInterval(actualizarTemperatura, 5000);
+setInterval(actualizarFotoVal, 5000);

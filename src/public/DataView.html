@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- Cargando Chart.js -->
     <link rel="stylesheet" href="StyleShit.css">
 </head>
-<body onload="isOG()">
+<body onload="isOG(), actualizarTemperatura(), actualizarFotoVal()">
 <section>
     <title>Tinaco Inteligente Control</title>
     <div class="center">
@@ -23,8 +23,14 @@
                 <button onclick="menu.OG=1">noset</button>
             </div>
         </article>
+        <span>
+            <h2 class="data-temperature"></h2>
+        </span>
+        <span>
+<!--            <h2>Actualmente esta:</h2>-->
+            <h2 class="data-fotoval"></h2>
+        </span>
         <h2>Nivel de Agua en el Tinaco</h2>
-
         <div class="container">
             <span>
                 <canvas id="waterTankChart" width="500" height="400"></canvas>
