@@ -124,3 +124,6 @@ dist
 
 CMakeLists.txt
 Potatoe.c
+
+
+.env".env" 
