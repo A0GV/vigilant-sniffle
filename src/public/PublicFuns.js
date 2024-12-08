@@ -34,7 +34,7 @@ function crearGrafica() {
     let myChart;
 
     const actualizarGrafica = () => {
-        fetch('http://io-t-water-tank-monitoring-system.vercel.app/iot/api/getAllDist')
+        fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getAllDist')
             .then(response => response.json())
             .then(response => {
                 const data = response.data;
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function actualizarTemperatura() {
-    fetch('http://io-t-water-tank-monitoring-system.vercel.app/iot/api/getallTempe')
+    fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getallTempe')
         .then(response => response.json())
         .then(response => {
             const data = response.data;
@@ -133,7 +133,7 @@ function actualizarTemperatura() {
 }
 
 function actualizarFotoVal() {
-    fetch('http://io-t-water-tank-monitoring-system.vercel.app/iot/api/getlastFotovalT5')
+    fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getlastFotovalT5')
         .then(response => response.json())
         .then(response => {
             const data = response.data;
