@@ -1,3 +1,4 @@
+const API_BASE_URL = window.location.origin;
 let menu=JSON.parse(localStorage.getItem('menu'))||{OG:0, height:0};
 
 
@@ -34,7 +35,7 @@ function crearGrafica() {
     let myChart;
 
     const actualizarGrafica = () => {
-        fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getAllDist')
+        fetch('${API_BASE_URL}/iot/api/getAllDist')
             .then(response => response.json())
             .then(response => {
                 const data = response.data;
@@ -107,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function actualizarTemperatura() {
-    fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getallTempe')
+    fetch('${API_BASE_URL}/iot/api/getallTempe')
         .then(response => response.json())
         .then(response => {
             const data = response.data;
@@ -133,7 +134,7 @@ function actualizarTemperatura() {
 }
 
 function actualizarFotoVal() {
-    fetch('https://io-t-water-tank-monitoring-system.vercel.app/iot/api/getlastFotovalT5')
+    fetch('${API_BASE_URL}/iot/api/getlastFotovalT5')
         .then(response => response.json())
         .then(response => {
             const data = response.data;

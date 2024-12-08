@@ -50,7 +50,7 @@ app.use(bodyParser.json());
  * Paso 2: Crear algunos endpoints básicos para el crud.
  * Para ver todos los endpoints agregados al momento, consulta el archivo /routes/route.js
  */
-app.use(router);
+app.use('/iot/api',router);
 
 
 // Primer endpoint que se crea en el app web. Simplemente respode un mensaje cuando haces una petición a la url: http://localhost:3000/
